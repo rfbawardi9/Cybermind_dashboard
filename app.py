@@ -23,7 +23,7 @@ from agents_runner import (
 
 st.set_page_config(page_title="Cybermind Dashboard", page_icon="🛡️", layout="wide")
 
-st.title("🛡️ Sybermind — AI-powered Cybersecurity Intelligence")
+st.title("🛡️ Cybermind — AI-powered Cybersecurity Intelligence")
 st.caption("Upload your security data → pipeline runs through 4 agents → get final PDF → ask questions about it.")
 
 # --- Sidebar: quick help
@@ -31,7 +31,7 @@ with st.sidebar:
     st.subheader("How to use")
     st.markdown("""
     1. Upload one or more files (logs/CSV/JSON).
-    2. Click **Run Sybermind Analysis**.
+    2. Click **Run Cybermind Analysis**.
     3. Download the generated **PDF**.
     4. Ask questions about the report in **Q&A**.
     """)
@@ -44,7 +44,7 @@ uploaded_files = st.file_uploader(
     "Upload one or more files (any type to start)",
     accept_multiple_files=True
 )
-run_button = st.button("Run Sybermind Analysis 🚀")
+run_button = st.button("Run Cybermind Analysis 🚀")
 
 # Session state to keep PDF around
 if "report_bytes" not in st.session_state:
@@ -78,7 +78,7 @@ if run_button:
     if not uploaded_files:
         st.error("Please upload at least one file first.")
     else:
-        with st.spinner("Running Sybermind pipeline..."):
+        with st.spinner("Running Cybermind pipeline..."):
             # 1. Threat Collector
             st.subheader("🔍 Threat Collector Agent")
             threat_data = run_threat_collector(uploaded_files)
@@ -112,9 +112,9 @@ if run_button:
 st.header("2) Download report & Q&A")
 if st.session_state.report_bytes:
     st.download_button(
-        label="⬇️ Download Sybermind Report (PDF)",
+        label="⬇️ Download Cybermind Report (PDF)",
         data=st.session_state.report_bytes,
-        file_name="sybermind_report.pdf",
+        file_name="Cybermind_report.pdf",
         mime="application/pdf"
     )
 
