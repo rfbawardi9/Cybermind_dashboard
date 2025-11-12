@@ -1,0 +1,7 @@
+streamlit
+pypdf
+reportlab
+openai
+nbformat
+nbclient
+papermill
